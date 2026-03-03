@@ -197,6 +197,49 @@ footer {
         flex-direction: column;
     }
 }
+    * ===== FAQ ===== */
+
+.faq-item {
+    background: #1e293b;
+    padding: 20px 25px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.faq-item:hover {
+    background: #243041;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    color: #cbd5e1;
+    margin-top: 10px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+.faq-icon {
+    font-size: 22px;
+    transition: 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
 </style>
 </head>
 
@@ -353,23 +396,47 @@ footer {
         <h2 class="section-title">Часто задаваемые вопросы</h2>
 
         <div class="faq-item">
-            <h3>Что делать, если у меня нет опыта в ведении малого бизнеса?</h3>
-            <p>Курс рассчитан как на новичков, так и на опытных предпринимателей. Мы пошагово обучаем всем этапам запуска и развития бизнеса.</p>
+            <div class="faq-question">
+                Что делать, если у меня нет опыта в ведении малого бизнеса?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Курс рассчитан как на новичков, так и на опытных предпринимателей. 
+                Мы пошагово обучаем всем этапам запуска и развития бизнеса.
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Сколько времени займет прохождение обучения?</h3>
-            <p>В среднем обучение занимает 4–8 недель, в зависимости от выбранного тарифа и вашей вовлеченности.</p>
+            <div class="faq-question">
+                Сколько времени займет прохождение обучения?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                В среднем обучение занимает 4–8 недель, в зависимости от выбранного тарифа 
+                и вашей вовлеченности.
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Как будет проходить обучение?</h3>
-            <p>Обучение проходит онлайн: видеоуроки, практические задания, разборы кейсов и поддержка кураторов.</p>
+            <div class="faq-question">
+                Как будет проходить обучение?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Обучение проходит онлайн: видеоуроки, практические задания, 
+                разборы кейсов и поддержка кураторов.
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Почему стоит выбрать именно нас?</h3>
-            <p>Мы не даем просто теорию — мы доводим до результата через сопровождение и внедрение решений в ваш бизнес.</p>
+            <div class="faq-question">
+                Почему стоит выбрать именно нас?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Мы не даем просто теорию — мы доводим до результата через сопровождение 
+                и внедрение решений в ваш бизнес.
+            </div>
         </div>
 
     </div>
@@ -381,6 +448,12 @@ footer {
     <p>ИНН 622003943790</p>
     <p>© 2026 Все права защищены</p>
 </footer>
-
+<script>
+document.querySelectorAll(".faq-item").forEach(item => {
+    item.addEventListener("click", () => {
+        item.classList.toggle("active");
+    });
+});
+</script>
 </body>
 </html>
