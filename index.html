@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+/* === Общие стили страницы === */
 * {
     margin: 0;
     padding: 0;
@@ -14,11 +15,14 @@
     font-family: 'Inter', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #0f172a;
     color: white;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -27,6 +31,7 @@ body {
     margin: auto;
 }
 
+/* === Главный экран (первый блок при открытии сайта) === */
 header {
     padding: 140px 0;
     text-align: center;
@@ -43,8 +48,6 @@ header h1 {
 header p {
     font-size: clamp(16px, 2.5vw, 20px);
     color: #cbd5e1;
-    max-width: 700px;
-    margin: auto;
 }
 
 .btn {
@@ -54,15 +57,8 @@ header p {
     background: #22c55e;
     color: black;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 12px;
     text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.btn:hover {
-    background: #16a34a;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(34,197,94,0.3);
 }
 
 section {
@@ -86,18 +82,9 @@ section {
     background: #1e293b;
     padding: 30px;
     border-radius: 20px;
-    flex: 1;
     min-width: 260px;
     max-width: 350px;
     text-align: center;
-    transition: 0.3s ease;
-}
-
-.feature:hover,
-.audience-item:hover,
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
 .price {
@@ -112,18 +99,12 @@ section {
     margin-bottom: 25px;
 }
 
-.card ul li {
-    margin-bottom: 10px;
-    color: #cbd5e1;
-}
-
 form {
     background: #1e293b;
     padding: 40px;
     border-radius: 20px;
     max-width: 600px;
     margin: auto;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 form input {
@@ -132,42 +113,6 @@ form input {
     margin-bottom: 20px;
     border-radius: 10px;
     border: none;
-    outline: none;
-    font-size: 16px;
-}
-
-form input:focus {
-    box-shadow: 0 0 0 2px #22c55e;
-}
-    
-.faq-item {
-    background: #1e293b;
-    padding: 25px;
-    border-radius: 16px;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
-
-.faq-item:hover {
-    background: #243447;
-}
-
-.contacts {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.contacts a {
-    display: inline-block;
-    margin: 10px 15px;
-    color: #22c55e;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.contacts a:hover {
-    color: white;
 }
 
 footer {
@@ -175,25 +120,192 @@ footer {
     padding: 40px 0;
     color: #94a3b8;
     font-size: 14px;
-    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 @media(max-width: 768px) {
-    header {
-        padding: 100px 0;
-    }
-
-    section {
-        padding: 60px 0;
-    }
-
-    .feature, .audience-item, .card {
-        width: 100%;
-    }
-
-    form {
-        padding: 30px 20px;
+    .features, .pricing, .audience {
+        flex-direction: column;
+        align-items: center;
     }
 }
 </style>
 </head>
+
+<body>
+
+<!-- ================= ПЕРВЫЙ ЭКРАН (Hero-блок) ================= -->
+<header>
+    <div class="container">
+        <!-- Главный заголовок сайта -->
+        <h1>Запуск и масштабирование бизнеса</h1>
+
+        <!-- Подзаголовок под главным текстом -->
+        <p>Обучаем предпринимателей внедрять эффективные решения и увеличивать прибыль</p>
+
+        <!-- Кнопка прокрутки к форме -->
+        <a href="#form" class="btn">Выбрать тариф</a>
+    </div>
+</header>
+
+<!-- ================= ЧТО ВХОДИТ В КУРС ================= -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Что входит в курс</h2>
+
+        <div class="features">
+
+            <!-- Блок 1 -->
+            <div class="feature">
+                <h3>Теория</h3>
+                <p>Пошаговые стратегии внедрения бизнес-решений.</p>
+            </div>
+
+            <!-- Блок 2 -->
+            <div class="feature">
+                <h3>Практика</h3>
+                <p>Обучение на всех этапах внедрения с разбором кейсов.</p>
+            </div>
+
+            <!-- Блок 3 -->
+            <div class="feature">
+                <h3>Курирование</h3>
+                <p>Поддержка и сопровождение до получения результата.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= ТАРИФЫ ================= -->
+<section id="pricing">
+    <div class="container">
+        <h2 class="section-title">Тарифы</h2>
+
+        <div class="pricing">
+
+            <!-- Тариф Базовый -->
+            <div class="card">
+                <h3>Базовый</h3>
+                <div class="price">50 000 ₽</div>
+                <ul>
+                    <li>Доступ к обучению</li>
+                    <li>Материалы курса</li>
+                    <li>Общие рекомендации</li>
+                    </ul>
+                <a href="#" class="btn">Оставить заявку</a>
+            </div>
+
+            <!-- Тариф Премиум -->
+            <div class="card">
+                <h3>Премиум</h3>
+                <div class="price">100 000 ₽</div>
+                <ul>
+                    <li>Всё из Базового</li>
+                    <li>Поддержка менеджеров</li>
+                    <li>Разбор бизнеса</li>
+                </ul>
+                <a href="#" class="btn">Оставить заявку</a>
+            </div>
+
+            <!-- Тариф VIP -->
+            <div class="card">
+                <h3>VIP</h3>
+                <div class="price">200 000 ₽</div>
+                <ul>
+                    <li>Всё из Премиума</li>
+                    <li>Личное ведение</li>
+                    <li>Индивидуальная стратегия</li>
+                </ul>
+                <a href="#" class="btn">Оставить заявку</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= КОМУ ПОДОЙДЕТ ================= -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Кому подойдет?</h2>
+
+        <div class="audience">
+
+            <div class="audience-item">
+                <h3>Новичкам</h3>
+                <p>Тем, кто только планирует запуск бизнеса и хочет избежать ошибок.</p>
+            </div>
+
+            <div class="audience-item">
+                <h3>Предпринимателям</h3>
+                <p>Тем, кто хочет масштабировать и систематизировать процессы.</p>
+            </div>
+
+            <div class="audience-item">
+                <h3>Маркетологам</h3>
+                <p>Специалистам, внедряющим решения в проекты клиентов.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= ФОРМА ЗАЯВКИ ================= -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Оставьте заявку</h2>
+
+        <!-- Форма -->
+        <form id="form">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Телефон" required>
+            <input type="email" placeholder="Email" required>
+            <button class="btn" type="submit">Отправить</button>
+        </form>
+
+        <!-- Контакты -->
+        <div class="contacts">
+            <p>Свяжитесь с нами напрямую:</p>
+            <a href="https://t.me/saiddmy" target="_blank">Telegram</a>
+            <a href="https://wa.me/79537376314" target="_blank">WhatsApp</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Часто задаваемые вопросы</h2>
+
+        <div class="faq-item">
+            <h3>Что делать, если у меня нет опыта в ведении малого бизнеса?</h3>
+            <p>Курс рассчитан как на новичков, так и на опытных предпринимателей. Мы пошагово обучаем всем этапам запуска и развития бизнеса.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Сколько времени займет прохождение обучения?</h3>
+            <p>В среднем обучение занимает 4–8 недель, в зависимости от выбранного тарифа и вашей вовлеченности.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Как будет проходить обучение?</h3>
+            <p>Обучение проходит онлайн: видеоуроки, практические задания, разборы кейсов и поддержка кураторов.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Почему стоит выбрать именно нас?</h3>
+            <p>Мы не даем просто теорию — мы доводим до результата через сопровождение и внедрение решений в ваш бизнес.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= ПОДВАЛ ================= -->
+<footer>
+    <p>ИП Саидова Муниса Курбановна</p>
+    <p>ИНН 622003943790</p>
+    <p>© 2026 Все права защищены</p>
+</footer>
+
+</body>
+</html>
