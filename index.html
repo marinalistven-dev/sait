@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Бизнес-курсы для предпринимателей</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
 * {
     margin: 0;
@@ -17,6 +18,7 @@ body {
     background: #0f172a;
     color: white;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -25,39 +27,47 @@ body {
     margin: auto;
 }
 
+/* ================= HEADER ================= */
+
 header {
-    padding: 200px 0;
+    padding: 140px 0;
     text-align: center;
-    background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), 
+    background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), 
                 url('me.jpg') center/cover no-repeat;
 }
 
 header h1 {
-    font-size: 48px;
+    font-size: clamp(28px, 5vw, 52px);
     font-weight: 800;
+    margin-bottom: 20px;
 }
 
 header p {
-    font-size: 20px;
-    margin-top: 20px;
+    font-size: clamp(16px, 2.5vw, 20px);
     color: #cbd5e1;
+    max-width: 700px;
+    margin: auto;
 }
 
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 15px 35px;
+    margin-top: 30px;
+    padding: 14px 32px;
     background: #22c55e;
     color: black;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .btn:hover {
     background: #16a34a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(34,197,94,0.3);
 }
+
+/* ================= SECTIONS ================= */
 
 section {
     padding: 80px 0;
@@ -65,37 +75,39 @@ section {
 
 .section-title {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 40px;
+    font-size: clamp(24px, 4vw, 36px);
+    margin-bottom: 50px;
 }
 
 .features, .audience, .pricing {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
 }
 
+/* ================= CARDS ================= */
+
 .feature, .audience-item, .card {
     background: #1e293b;
     padding: 30px;
-    border-radius: 16px;
+    border-radius: 20px;
     flex: 1;
-    min-width: 250px;
+    min-width: 260px;
+    max-width: 350px;
     text-align: center;
+    transition: 0.3s ease;
 }
 
-.card {
-    max-width: 300px;
-}
-
+.feature:hover,
+.audience-item:hover,
 .card:hover {
     transform: translateY(-10px);
-    transition: 0.3s;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
 .price {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 800;
     margin: 20px 0;
     color: #22c55e;
@@ -103,7 +115,7 @@ section {
 
 .card ul {
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .card ul li {
@@ -111,28 +123,46 @@ section {
     color: #cbd5e1;
 }
 
+/* ================= FORM ================= */
+
 form {
     background: #1e293b;
     padding: 40px;
-    border-radius: 16px;
+    border-radius: 20px;
     max-width: 600px;
     margin: auto;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 form input {
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
+    outline: none;
+    font-size: 16px;
 }
+
+form input:focus {
+    box-shadow: 0 0 0 2px #22c55e;
+}
+
+/* ================= FAQ ================= */
 
 .faq-item {
     background: #1e293b;
     padding: 25px;
-    border-radius: 12px;
+    border-radius: 16px;
     margin-bottom: 20px;
+    transition: 0.3s;
 }
+
+.faq-item:hover {
+    background: #243447;
+}
+
+/* ================= CONTACTS ================= */
 
 .contacts {
     text-align: center;
@@ -141,168 +171,45 @@ form input {
 
 .contacts a {
     display: inline-block;
-    margin: 10px;
+    margin: 10px 15px;
     color: #22c55e;
     font-weight: 600;
     text-decoration: none;
+    transition: 0.3s;
 }
+
+.contacts a:hover {
+    color: white;
+}
+
+/* ================= FOOTER ================= */
 
 footer {
     text-align: center;
     padding: 40px 0;
     color: #94a3b8;
     font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-@media(max-width: 900px) {
-    .features, .pricing, .audience {
-        flex-direction: column;
-        align-items: center;
+/* ================= MOBILE ================= */
+
+@media(max-width: 768px) {
+    header {
+        padding: 100px 0;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .feature, .audience-item, .card {
+        width: 100%;
+    }
+
+    form {
+        padding: 30px 20px;
     }
 }
 </style>
 </head>
-
-<body>
-
-<header class="container">
-    <h1>Запуск и масштабирование бизнеса</h1>
-    <p>Обучаем предпринимателей внедрять эффективные решения и увеличивать прибыль</p>
-    <a href="#form" class="btn">Выбрать тариф</a>
-</header>
-
-<section>
-    <div class="container">
-        <h2 class="section-title">Что входит в курс</h2>
-        <div class="features">
-            <div class="feature">
-                <h3>Теория</h3>
-                <p>Пошаговые стратегии внедрения бизнес-решений.</p>
-            </div>
-            <div class="feature">
-                <h3>Практика</h3>
-                <p>Обучение на всех этапах внедрения с разбором кейсов.</p>
-            </div>
-            <div class="feature">
-                <h3>Курирование</h3>
-                <p>Поддержка и сопровождение до получения результата.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="pricing">
-    <div class="container">
-        <h2 class="section-title">Тарифы</h2>
-        <div class="pricing">
-
-            <div class="card">
-                <h3>Базовый</h3>
-                <div class="price">50 000 ₽</div>
-                <ul>
-                    <li>Доступ к обучению</li>
-                    <li>Материалы курса</li>
-                    <li>Общие рекомендации</li>
-                </ul>
-                <a href="#" class="btn">Оставить заявку</a>
-            </div>
-
-            <div class="card">
-                <h3>Премиум</h3>
-                <div class="price">100 000 ₽</div>
-                <ul>
-                    <li>Всё из Базового</li>
-                    <li>Поддержка менеджеров</li>
-                    <li>Разбор бизнеса</li>
-                </ul>
-                <a href="#" class="btn">Оставить заявку</a>
-            </div>
-
-            <div class="card">
-                <h3>VIP</h3>
-                <div class="price">200 000 ₽</div>
-                <ul>
-                    <li>Всё из Премиума</li>
-                    <li>Личное ведение</li>
-                    <li>Индивидуальная стратегия</li>
-                </ul>
-                <a href="#" class="btn">Оставить заявку</a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <h2 class="section-title">Кому подойдет?</h2>
-        <div class="audience">
-            <div class="audience-item">
-                <h3>Новичкам</h3>
-                <p>Тем, кто только планирует запуск бизнеса и хочет избежать ошибок.</p>
-            </div>
-            <div class="audience-item">
-                <h3>Предпринимателям</h3>
-                <p>Тем, кто хочет масштабировать и систематизировать процессы.</p>
-            </div>
-            <div class="audience-item">
-                <h3>Маркетологам</h3>
-                <p>Специалистам, внедряющим решения в проекты клиентов.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <h2 class="section-title">Оставьте заявку</h2>
-        <form id="form">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон" required>
-            <input type="email" placeholder="Email" required>
-            <button class="btn" type="submit">Отправить</button>
-        </form>
-
-        <div class="contacts">
-            <p>Свяжитесь с нами напрямую:</p>
-            <a href="https://t.me/saiddmy" target="_blank">Telegram</a>
-            <a href="https://wa.me/79537376314" target="_blank">WhatsApp</a>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <h2 class="section-title">Часто задаваемые вопросы</h2>
-
-        <div class="faq-item">
-            <h3>Что делать, если у меня нет опыта в ведении малого бизнеса?</h3>
-            <p>Курс рассчитан как на новичков, так и на опытных предпринимателей. Мы пошагово обучаем всем этапам запуска и развития бизнеса.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Сколько времени займет прохождение обучения?</h3>
-            <p>В среднем обучение занимает 4–8 недель, в зависимости от выбранного тарифа и вашей вовлеченности.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Как будет проходить обучение?</h3>
-            <p>Обучение проходит онлайн: видеоуроки, практические задания, разборы кейсов и поддержка кураторов.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Почему стоит выбрать именно нас?</h3>
-            <p>Мы не даем просто теорию — мы доводим до результата через сопровождение и внедрение решений в ваш бизнес.</p>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    <p>ИП Саидова Муниса Курбановна</p>
-    <p>ИНН 622003943790</p>
-    <p>© 2026 Все права защищены</p>
-</footer>
-
-</body>
-</html>
