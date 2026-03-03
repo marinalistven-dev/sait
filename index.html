@@ -128,7 +128,78 @@ footer {
         align-items: center;
     }
 }
-</style>
+</style
+    contacts {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.contacts-title {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #cbd5e1;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+    color: white;
+}
+
+.contact-btn img {
+    width: 22px;
+    height: 22px;
+    filter: invert(1);
+}
+
+/* Telegram */
+.telegram {
+    background: #229ED9;
+}
+
+.telegram:hover {
+    background: #1c8ac4;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(34,158,217,0.4);
+}
+
+/* WhatsApp */
+.whatsapp {
+    background: #25D366;
+}
+
+.whatsapp:hover {
+    background: #1ebe5d;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37,211,102,0.4);
+}
+
+/* Mobile */
+@media(max-width: 600px) {
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
 </head>
 
 <body>
@@ -186,7 +257,7 @@ footer {
             <!-- Тариф Базовый -->
             <div class="card">
                 <h3>Базовый</h3>
-                <div class="price">50 000 ₽</div>
+                <div class="price">55 000 ₽</div>
                 <ul>
                     <li>Доступ к обучению</li>
                     <li>Материалы курса</li>
@@ -198,7 +269,7 @@ footer {
             <!-- Тариф Премиум -->
             <div class="card">
                 <h3>Премиум</h3>
-                <div class="price">100 000 ₽</div>
+                <div class="price">110 000 ₽</div>
                 <ul>
                     <li>Всё из Базового</li>
                     <li>Поддержка менеджеров</li>
@@ -210,7 +281,7 @@ footer {
             <!-- Тариф VIP -->
             <div class="card">
                 <h3>VIP</h3>
-                <div class="price">200 000 ₽</div>
+                <div class="price">220 000 ₽</div>
                 <ul>
                     <li>Всё из Премиума</li>
                     <li>Личное ведение</li>
@@ -264,13 +335,20 @@ footer {
 
         <!-- Контакты -->
         <div class="contacts">
-            <p>Свяжитесь с нами напрямую:</p>
-            <a href="https://t.me/saiddmy" target="_blank">Telegram</a>
-            <a href="https://wa.me/79537376314" target="_blank">WhatsApp</a>
-        </div>
-    </div>
-</section>
+    <p class="contacts-title">Свяжитесь с нами напрямую:</p>
 
+    <div class="contact-buttons">
+        <a href="https://t.me/saiddmy" target="_blank" class="contact-btn telegram">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram">
+            Telegram
+        </a>
+
+        <a href="https://wa.me/79537376314" target="_blank" class="contact-btn whatsapp">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+            WhatsApp
+        </a>
+    </div>
+</div>
 <!-- ================= FAQ ================= -->
 <section>
     <div class="container">
