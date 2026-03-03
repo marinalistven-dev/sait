@@ -367,13 +367,16 @@ footer {
         <h2 class="section-title">Оставьте заявку</h2>
 
         <!-- Форма -->
-        <form id="form">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон" required>
-            <input type="email" placeholder="Email" required>
-            <button class="btn" type="submit">Отправить</button>
-        </form>
+        <form id="form" action="https://formspree.io/f/xjgeqdzy" method="POST">
+    <input type="text" name="name" placeholder="Ваше имя" required>
+    <input type="tel" name="phone" placeholder="Телефон" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button class="btn" type="submit">Отправить</button>
+</form>
 
+<p id="form-success" style="display:none; text-align:center; margin-top:15px; color:#22c55e; font-weight:600;">
+    Спасибо! Ваша заявка принята.
+</p>
         <!-- Контакты -->
         <div class="contacts">
     <p class="contacts-title">Свяжитесь с нами напрямую:</p>
@@ -453,6 +456,31 @@ document.querySelectorAll(".faq-item").forEach(item => {
     item.addEventListener("click", () => {
         item.classList.toggle("active");
     });
+});
+<script>
+const form = document.getElementById("form");
+const successMessage = document.getElementById("form-success");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // чтобы страница не перезагружалась
+    const formData = new FormData(form);
+    
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            successMessage.style.display = "block";  // показать сообщение
+            form.reset(); // очистить форму
+        } else {
+            alert("Ошибка при отправке. Попробуйте ещё раз.");
+        }
+    } catch (error) {
+        alert("Ошибка сети. Попробуйте ещё раз.");
+    }
 });
 </script>
 </body>
