@@ -4,7 +4,7 @@ $name = $_POST['name'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 
-$to = "yourmail@gmail.com"; // ← сюда свою почту
+$to = "SAIDOM44@yandex.ru"; // ← сюда свою почту
 $subject = "Новая заявка с сайта";
 
 $message = "
